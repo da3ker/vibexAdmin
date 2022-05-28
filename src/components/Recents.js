@@ -53,9 +53,10 @@ const Recents = () => {
     getOrders();
   }, []);
   //=*=*=*=*=*=FETCHING RECENT ORDERS=*=*=*=*=*=[END]//
-
+  console.log(orders);
   //=*=*=*=*=*=SETTING ROWS=*=*=*=*=*=//
   const rows = orders
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     .map((item) =>
       createData(
         item.paymentData.orderID,
